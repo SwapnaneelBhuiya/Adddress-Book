@@ -19,7 +19,6 @@ public class AddressBookMain
     public static String getLast_name() {
         return last_name;
     }
-
     public static String getAddress() {
         return address;
     }
