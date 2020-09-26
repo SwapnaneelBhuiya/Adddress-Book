@@ -1,99 +1,18 @@
 import java.util.*;
 public class AddressBookMain
 {
-    public static String first_name;
-    public static String last_name;
-    public static String address;
-    public static String city;
-    public static String state;
-    public static String zip;
-    public static String phone_number;
-    public static String email;
-    public static ArrayList<AddressBookMain> Address_Book=new ArrayList<AddressBookMain>();
-
-
-    public static String getFirst_name() {
-        return first_name;
-    }
-
-    public static String getLast_name() {
-        return last_name;
-    }
-    public static String getAddress() {
-        return address;
-    }
-
-    public static String getCity() {
-        return city;
-    }
-
-    public static String getState() {
-        return state;
-    }
-
-    public static String getZip() {
-        return zip;
-    }
-
-    public static String getPhone_number() {
-        return phone_number;
-    }
-
-    public static String getEmail() {
-        return email;
-    }
-    public static String setFirst_name(String a) {
-         first_name=a;
-    }
-
-    public static String setLast_name(String a) {
-         last_name=a;
-    }
-
-    public static String setAddress(String a) {
-         address=a;
-    }
-
-    public static String setCity(String a) {
-         city=a;
-    }
-
-    public static String setState(String a) {
-         state=a;
-    }
-
-    public static String setZip(String a) {
-         zip=a;
-    }
-
-    public static String setPhone_number(String a) {
-         phone_number=a;
-    }
-
-    public static String setEmail(String a) {
-         email=a;
-    }
-    public AddressBookMain(String a, String b, String c, String d, String e, String f, String g, String h)
+    public static ArrayList<AddressBookMain> Address_Book;
+    Scanner sc=new Scanner(System.in);
+    public static AddressBookMain()
     {
-        first_name=a;
-        last_name=b;
-        address=c;
-        city=d;
-        state=e;
-        zip=f;
-        phone_number=g;
-        email=h;
+        Address_Book=new ArrayList<AddressBookMain>();
     }
     public static void Contact_delete(int i)
     {
         Address_Book.remove(i);
     }
-    public static void main(String args[])
+    public void Add_Contact()
     {
-        Scanner sc=new Scanner(System.in);
-        System.out.println("Welcome to the Address Book problem in Address Book Main class");
-        for(int i=0;i<5;i++)//assuming 5 entries
-        {
             System.out.println("Enter user info");
             String a = sc.nextLine();
             String b = sc.nextLine();
@@ -103,12 +22,15 @@ public class AddressBookMain
             String f = sc.nextLine();
             String g = sc.nextLine();
             String h = sc.nextLine();
-            AddressBookMain obj = new AddressBookMain(a, b, c, d, e, f, g, h);
+            Contact obj = new Contact(a, b, c, d, e, f, g, h);
             Address_Book.add(obj);
-        }
+    }
+    public void contact_edit()
+    {
         System.out.println("Enter first and last name of person to be edited");
         String temp_fname=sc.nextLine();
         String temp_lname=sc.nextLine();
+        int c=0;
         for(int i=0;i<5;i++)
         {
             if(Address_Book(i).getFirst_name().equals(temp_fname)&&Address_Book(i).getLast_name().equals(temp_lname))
@@ -120,17 +42,54 @@ public class AddressBookMain
                 Address_Book(i).setZip(sc.nextLine());
                 Address_Book(i).setPhone_number(sc.nextLine());
                 Address_Book(i).setEmail(sc.nextLine());
+                c=1;
                 break;
             }
         }
-        System.out.println("Enter first and last name of person to be deletd");
-        temp_fname=sc.nextLine();
-        temp_lname=sc.nextLine();
-        for(int i=0;i<5;i++)
-            if(Address_Book(i).getFirst_name().equals(temp_fname)&&Address_Book(i).getLast_name().equals(temp_lname))
-            {
-                Contact_delete(i);
-                break;
+        if(c==0)
+            System.out.println("Name not found");
+    }
+    public ArrayList<AddressBookMain> get_alist()
+    {
+        return Address_Book;
+    }
+    public static void main(String args[])
+    {
+        System.out.println("Welcome to the Address Book problem in Address Book Main class");
+        AddressBookMain obj=new AddressBookMain();
+        while(true)
+        {
+            System.out.println(" Press 1 to Enter Contact");
+            System.out.println(" Press 2 to edit existing contact");
+            System.out.println(" Press 3 to delete existing contact");
+            System.out.println(" Press 4 to Exit");
+            int n=sc.nextInt();sc.nextLine();
+            switch(ch) {
+                case 1:
+                    obj.Add_Contact();
+                    break;
+                case 2:
+                    obj.contact_edit();
+                    break;
+                case 3:
+                    System.out.println("Enter first and last name of person to be deletd");
+                    String temp_fname=sc.nextLine();
+                    String temp_lname=sc.nextLine();
+                    int c=0;
+                    for(int i=0;i<5;i++)
+                        if(Address_Book(i).getFirst_name().equals(temp_fname)&&Address_Book(i).getLast_name().equals(temp_lname))
+                        {
+                            Contact_delete(i);c=1;
+                            break;
+                        }
+                    if(c==0)
+                        System.out.println("Name to be deleted not found");
+                    break;
+                case 4:
+                    System.exit(0);
+                default:
+                    System.out.println("Enter again!");
             }
+        }
     }
 }
