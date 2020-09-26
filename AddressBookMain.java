@@ -85,7 +85,10 @@ public class AddressBookMain
         phone_number=g;
         email=h;
     }
-
+    public static void Contact_delete(int i)
+    {
+        Address_Book.remove(i);
+    }
     public static void main(String args[])
     {
         Scanner sc=new Scanner(System.in);
@@ -121,6 +124,14 @@ public class AddressBookMain
                 break;
             }
         }
-        
+        System.out.println("Enter first and last name of person to be deletd");
+        temp_fname=sc.nextLine();
+        temp_lname=sc.nextLine();
+        for(int i=0;i<5;i++)
+            if(Address_Book(i).getFirst_name().equals(temp_fname)&&Address_Book(i).getLast_name().equals(temp_lname))
+            {
+                Contact_delete(i);
+                break;
+            }
     }
 }
