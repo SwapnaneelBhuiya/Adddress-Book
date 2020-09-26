@@ -1,14 +1,16 @@
 import java.util.*;
 public class AddressBookMain
 {
-    public static final String first_name;
-    public static final String last_name;
-    public static final String address;
-    public static final String city;
-    public static final String state;
-    public static final String zip;
-    public static final String phone_number;
-    public static final String email;
+    public static String first_name;
+    public static String last_name;
+    public static String address;
+    public static String city;
+    public static String state;
+    public static String zip;
+    public static String phone_number;
+    public static String email;
+    public static ArrayList<AddressBookMain> Address_Book=new ArrayList<AddressBookMain>();
+
 
     public static String getFirst_name() {
         return first_name;
@@ -41,6 +43,37 @@ public class AddressBookMain
     public static String getEmail() {
         return email;
     }
+    public static String setFirst_name(String a) {
+         first_name=a;
+    }
+
+    public static String setLast_name(String a) {
+         last_name=a;
+    }
+
+    public static String setAddress(String a) {
+         address=a;
+    }
+
+    public static String setCity(String a) {
+         city=a;
+    }
+
+    public static String setState(String a) {
+         state=a;
+    }
+
+    public static String setZip(String a) {
+         zip=a;
+    }
+
+    public static String setPhone_number(String a) {
+         phone_number=a;
+    }
+
+    public static String setEmail(String a) {
+         email=a;
+    }
     public AddressBookMain(String a, String b, String c, String d, String e, String f, String g, String h)
     {
         first_name=a;
@@ -57,7 +90,6 @@ public class AddressBookMain
     {
         Scanner sc=new Scanner(System.in);
         System.out.println("Welcome to the Address Book problem in Address Book Main class");
-        ArrayList<AddressBookMain> Address_Book=new ArrayList<AddressBookMain>();
         for(int i=0;i<5;i++)//assuming 5 entries
         {
             System.out.println("Enter user info");
@@ -72,5 +104,23 @@ public class AddressBookMain
             AddressBookMain obj = new AddressBookMain(a, b, c, d, e, f, g, h);
             Address_Book.add(obj);
         }
+        System.out.println("Enter first and last name of person to be edited");
+        String temp_fname=sc.nextLine();
+        String temp_lname=sc.nextLine();
+        for(int i=0;i<5;i++)
+        {
+            if(Address_Book(i).getFirst_name().equals(temp_fname)&&Address_Book(i).getLast_name().equals(temp_lname))
+            {
+                System.out.println("Enter new details");
+                Address_Book(i).setAddress(sc.nextLine());
+                Address_Book(i).setCity(sc.nextLine());
+                Address_Book(i).setState(sc.nextLine());
+                Address_Book(i).setZip(sc.nextLine());
+                Address_Book(i).setPhone_number(sc.nextLine());
+                Address_Book(i).setEmail(sc.nextLine());
+                break;
+            }
+        }
+        
     }
 }
