@@ -27,7 +27,8 @@ public class AddressBookMain
                 System.out.println("Can't add as duplicate exists");
             else
             {Contact obj = new Contact(a, b, c, d, e, f, g, h);
-                Address_Book.add(obj);}
+                Address_Book.add(obj);
+            }
     }
     public void contact_edit()
     {
