@@ -25,7 +25,7 @@ public class Dictionary extends AddressBookMain
                 if(c.getKey().equals(city))
                 {con++;System.out.println(c.getValue());}
             }
-            System.out.println("Number of contact person by city= "+c);
+            System.out.println("Number of contact person by city= "+con);
         }
         public void search_by_state(String state)
         {
@@ -38,7 +38,7 @@ public class Dictionary extends AddressBookMain
                 if(c.getKey().equals(state))
                 {con++;System.out.println(c.getValue());}
             }
-            System.out.println("Number of contact person by state= "+c);
+            System.out.println("Number of contact person by state= "+con);
         }
         public void contact_details()
         {
