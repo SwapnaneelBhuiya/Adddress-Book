@@ -64,14 +64,15 @@ public class Contact {
             zip = a;
         }
 
-        public static String setPhone_number(String a) {
+        public static String setPhone_number(String a)
+        {
             phone_number = a;
         }
 
-        public static String setEmail(String a) {
+        public static String setEmail(String a)
+        {
             email = a;
         }
-
     public Contact(String a, String b, String c, String d, String e, String f, String g, String h) {
         first_name = a;
         last_name = b;
