@@ -4,39 +4,41 @@ public class Dictionary extends AddressBookMain
     public static HashMap<String, ArrayList<Contact>> dict=new HashMap<String, ArrayList<Contact>>();
     public static HashMap<String, String> dict_by_city;
     public static HashMap<String, String> dict_by_state;
-    public void add_by_city_and_state()
-    {
+    public void add_by_city_and_state() {
         Iterator it = dict.entrySet().iterator();
-        while(it.hasNext())
-        {
-            Map.Entry cont = (Map.Entry)it.next();
-            for(Contact i:cont.getValue())
-            {
-                dict_by_city.put(i.getCity(),i.getFirst_name()+" "+i.getLast_name());
-                dict_by_state.put(i.getState(),i.getFirst_name()+" "+i.getLast_name());
+        while (it.hasNext()) {
+            Map.Entry cont = (Map.Entry) it.next();
+            for (Contact i : cont.getValue()) {
+                dict_by_city.put(i.getCity(), i.getFirst_name() + " " + i.getLast_name());
+                dict_by_state.put(i.getState(), i.getFirst_name() + " " + i.getLast_name());
             }
+        }
     }
         public void search_by_city(String city)
         {
+            int con=0;
             System.out.println("People living in the city "+city+" are");
             Iterator it = dict_by_city.entrySet().iterator();
             while(it.hasNext())
             {
                 Map.Entry c=(Map.Entry)it.next();
                 if(c.getKey().equals(city))
-                    System.out.println(c.getValue());
+                {con++;System.out.println(c.getValue());}
             }
+            System.out.println("Number of contact person by city= "+c);
         }
         public void search_by_state(String state)
         {
+            int con=0;
             System.out.println("People living in the state "+state+" are");
             Iterator it = dict_by_state.entrySet().iterator();
             while(it.hasNext())
             {
                 Map.Entry c=(Map.Entry)it.next();
                 if(c.getKey().equals(state))
-                    System.out.println(c.getValue());
+                {con++;System.out.println(c.getValue());}
             }
+            System.out.println("Number of contact person by state= "+c);
         }
         public void contact_details()
         {
@@ -61,12 +63,10 @@ public class Dictionary extends AddressBookMain
                 }
             }
         }
-    public static void add_dict(ArrayList<Contact> ar)
-    {
-        Scanner sc=new Scanner(System.in);
+        public static void add_dict(ArrayList<Contact> ar)
+        {
+            Scanner sc=new Scanner(System.in);
             System.out.println("Enter the name of the Address book");
             dict.put(sc.nextLine(),ar);
+        }
     }
-
-
-}
