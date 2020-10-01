@@ -18,25 +18,29 @@ public class Dictionary extends AddressBookMain
     }
         public void search_by_city(String city)
         {
+            int c=0;
             System.out.println("People living in the city "+city+" are");
             Iterator it = dict_by_city.entrySet().iterator();
             while(it.hasNext())
             {
                 Map.Entry c=(Map.Entry)it.next();
                 if(c.getKey().equals(city))
-                    System.out.println(c.getValue());
+                {c++;System.out.println(c.getValue());}
             }
+            System.out.println("Number of contact person by city= "+c);
         }
         public void search_by_state(String state)
         {
+            int c=0;
             System.out.println("People living in the state "+state+" are");
             Iterator it = dict_by_state.entrySet().iterator();
             while(it.hasNext())
             {
                 Map.Entry c=(Map.Entry)it.next();
                 if(c.getKey().equals(state))
-                    System.out.println(c.getValue());
+                {c++;System.out.println(c.getValue());}
             }
+            System.out.println("Number of contact person by state= "+c);
         }
         public void contact_details()
         {

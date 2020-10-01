@@ -75,8 +75,8 @@ public class AddressBookMain
             System.out.println(" Press 2 to edit existing contact");
             System.out.println(" Press 3 to delete existing contact");
             System.out.println(" Press 4 to add to dictionary");
-            System.out.println(" Press 5 to search by City");
-            System.out.println(" Press 6 to search by State");
+            System.out.println(" Press 5 to search and display by City");
+            System.out.println(" Press 6 to search and display by State");
             System.out.println(" Press 7 to exit");
             int n=sc.nextInt();sc.nextLine();
             switch(ch) {
