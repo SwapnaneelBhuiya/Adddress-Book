@@ -2,6 +2,7 @@ import java.util.*;
 public class AddressBookMain
 {
     public static ArrayList<Contact> Address_Book;
+    public static Dictionary dict=new Dictionary();
     Scanner sc=new Scanner(System.in);
     public static AddressBookMain()
     {
@@ -72,7 +73,10 @@ public class AddressBookMain
             System.out.println(" Press 1 to Enter Contact");
             System.out.println(" Press 2 to edit existing contact");
             System.out.println(" Press 3 to delete existing contact");
-            System.out.println(" Press 4 to Exit");
+            System.out.println(" Press 4 to add to dictionary");
+            System.out.println(" Press 5 to search by City");
+            System.out.println(" Press 6 to search by State");
+            System.out.println(" Press 7 to exit");
             int n=sc.nextInt();sc.nextLine();
             switch(ch) {
                 case 1:
@@ -96,6 +100,19 @@ public class AddressBookMain
                         System.out.println("Name to be deleted not found");
                     break;
                 case 4:
+                    dict.add(Address_Book);
+                    dict.add_by_city_and_state();
+                    Address_Book.clear();
+                    break;
+                case 5:
+                    System.out.println("Enter city by which to search for");
+                    dict.search_by_city(sc.nextLine());
+                    break;
+                case 6:
+                    System.out.println("Enter state by which to search");
+                    dict.search_by_state(sc.nextLine());
+                    break;
+                case 7:
                     System.exit(0);
                 default:
                     System.out.println("Enter again!");
