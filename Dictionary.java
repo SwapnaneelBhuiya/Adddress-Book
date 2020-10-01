@@ -26,7 +26,7 @@ public class Dictionary extends AddressBookMain
             Map.Entry cont = (Map.Entry)it.next();
             String names=cont.getKey();
             AddressBookMain ob=cont.getValue();
-            ArrayList<AddressBookMain> ar=ob.get_alist();
+            ArrayList<Contact> ar=ob.get_alist();
             System.out.println("The name is: "+names);
             for(int i=0;i<ar.size();i++)
             {

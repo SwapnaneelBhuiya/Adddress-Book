@@ -1,11 +1,11 @@
 import java.util.*;
 public class AddressBookMain
 {
-    public static ArrayList<AddressBookMain> Address_Book;
+    public static ArrayList<Contact> Address_Book;
     Scanner sc=new Scanner(System.in);
     public static AddressBookMain()
     {
-        Address_Book=new ArrayList<AddressBookMain>();
+        Address_Book=new ArrayList<Contact>();
     }
     public static void Contact_delete(int i)
     {
@@ -22,8 +22,11 @@ public class AddressBookMain
             String f = sc.nextLine();
             String g = sc.nextLine();
             String h = sc.nextLine();
-            Contact obj = new Contact(a, b, c, d, e, f, g, h);
-            Address_Book.add(obj);
+            if(Equals(a,b))
+                System.out.println("Can't add as duplicate exists");
+            else
+            {Contact obj = new Contact(a, b, c, d, e, f, g, h);
+                Address_Book.add(obj);}
     }
     public void contact_edit()
     {
@@ -49,9 +52,16 @@ public class AddressBookMain
         if(c==0)
             System.out.println("Name not found");
     }
-    public ArrayList<AddressBookMain> get_alist()
+    public ArrayList<Contact> get_alist()
     {
         return Address_Book;
+    }
+    public boolean Equals(String a, String b) {
+        for (Contact i : Address_Book)
+        {if (i.getFirst_name().equals(a) && i.getLast_name().equals(b))
+                return true;
+    }
+        return false;
     }
     public static void main(String args[])
     {
