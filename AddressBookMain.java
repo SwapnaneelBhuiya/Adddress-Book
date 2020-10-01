@@ -1,11 +1,11 @@
 import java.util.*;
 public class AddressBookMain
 {
-    public static ArrayList<AddressBookMain> Address_Book;
+    public static ArrayList<Contact> Address_Book;
     Scanner sc=new Scanner(System.in);
     public static AddressBookMain()
     {
-        Address_Book=new ArrayList<AddressBookMain>();
+        Address_Book=new ArrayList<Contact>();
     }
     public static void Contact_delete(int i)
     {
