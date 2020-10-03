@@ -8,67 +8,67 @@ public class Contact {
     public static String phone_number;
     public static String email;
 
-    public static String getFirst_name() {
+    public  String getFirst_name() {
         return first_name;
     }
 
-    public static String getLast_name() {
+    public  String getLast_name() {
         return last_name;
     }
 
-    public static String getAddress() {
+    public  String getAddress() {
         return address;
     }
 
-    public static String getCity() {
+    public  String getCity() {
         return city;
     }
 
-    public static String getState() {
+    public  String getState() {
         return state;
     }
 
-    public static String getZip() {
+    public  String getZip() {
         return zip;
     }
 
-    public static String getPhone_number() {
+    public  String getPhone_number() {
         return phone_number;
     }
 
-    public static String getEmail() {
+    public  String getEmail() {
         return email;
     }
 
-    public static String setFirst_name(String a) {
+    public  void setFirst_name(String a) {
         first_name = a;
     }
 
-    public static String setLast_name(String a) {
+    public  void setLast_name(String a) {
         last_name = a;
     }
 
-    public static String setAddress(String a) {
+    public  void setAddress(String a) {
         address = a;
     }
 
-    public static String setCity(String a) {
+    public  void setCity(String a) {
         city = a;
     }
 
-    public static String setState(String a) {
+    public  void setState(String a) {
         state = a;
     }
 
-    public static String setZip(String a) {
+    public  void setZip(String a) {
         zip = a;
     }
 
-    public static String setPhone_number(String a) {
+    public  void setPhone_number(String a) {
         phone_number = a;
     }
 
-    public static String setEmail(String a) {
+    public  void setEmail(String a) {
         email = a;
     }
 
