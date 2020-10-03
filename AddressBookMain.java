@@ -102,7 +102,6 @@ public class AddressBookMain
                     break;
                 case 4:
                     dict.add(Address_Book);
-                    dict.add_by_city_and_state();
                     Address_Book.clear();
                     break;
                 case 5:
