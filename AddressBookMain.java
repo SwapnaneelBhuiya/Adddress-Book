@@ -3,12 +3,12 @@ public class AddressBookMain
 {
     public static ArrayList<Contact> Address_Book;
     public static Dictionary dict=new Dictionary();
-    Scanner sc=new Scanner(System.in);
-    public static AddressBookMain()
+    public static Scanner sc=new Scanner(System.in);
+    public AddressBookMain()
     {
         Address_Book=new ArrayList<Contact>();
     }
-    public static void Contact_delete(int i)
+    public static void Contact_delete(Contact i)
     {
         Address_Book.remove(i);
     }
@@ -36,17 +36,17 @@ public class AddressBookMain
         String temp_fname=sc.nextLine();
         String temp_lname=sc.nextLine();
         int c=0;
-        for(int i=0;i<5;i++)
+        for(Contact i: Address_Book)
         {
-            if(Address_Book(i).getFirst_name().equals(temp_fname)&&Address_Book(i).getLast_name().equals(temp_lname))
+            if(i.getFirst_name().equals(temp_fname)&&i.getLast_name().equals(temp_lname))
             {
                 System.out.println("Enter new details");
-                Address_Book(i).setAddress(sc.nextLine());
-                Address_Book(i).setCity(sc.nextLine());
-                Address_Book(i).setState(sc.nextLine());
-                Address_Book(i).setZip(sc.nextLine());
-                Address_Book(i).setPhone_number(sc.nextLine());
-                Address_Book(i).setEmail(sc.nextLine());
+                i.setAddress(sc.nextLine());
+                i.setCity(sc.nextLine());
+                i.setState(sc.nextLine());
+                i.setZip(sc.nextLine());
+                i.setPhone_number(sc.nextLine());
+                i.setEmail(sc.nextLine());
                 c=1;
                 break;
             }
@@ -77,9 +77,10 @@ public class AddressBookMain
             System.out.println(" Press 4 to add to dictionary");
             System.out.println(" Press 5 to search and display by City");
             System.out.println(" Press 6 to search and display by State");
-            System.out.println(" Press 7 to exit");
+            System.out.println(" Press 7 to display all contact detail");
+            System.out.println(" Press 8 to exit");
             int n=sc.nextInt();sc.nextLine();
-            switch(ch) {
+            switch(n) {
                 case 1:
                     obj.Add_Contact();
                     break;
@@ -91,8 +92,8 @@ public class AddressBookMain
                     String temp_fname=sc.nextLine();
                     String temp_lname=sc.nextLine();
                     int c=0;
-                    for(int i=0;i<5;i++)
-                        if(Address_Book(i).getFirst_name().equals(temp_fname)&&Address_Book(i).getLast_name().equals(temp_lname))
+                    for(Contact i:Address_Book)
+                        if(i.getFirst_name().equals(temp_fname)&&i.getLast_name().equals(temp_lname))
                         {
                             Contact_delete(i);c=1;
                             break;
@@ -101,7 +102,7 @@ public class AddressBookMain
                         System.out.println("Name to be deleted not found");
                     break;
                 case 4:
-                    dict.add(Address_Book);
+                    dict.add_dict(Address_Book);
                     dict.add_by_city_and_state();
                     Address_Book.clear();
                     break;
@@ -114,6 +115,9 @@ public class AddressBookMain
                     dict.search_by_state(sc.nextLine());
                     break;
                 case 7:
+                	dict.contact_details();
+                	break;
+                case 8:
                     System.exit(0);
                 default:
                     System.out.println("Enter again!");
@@ -121,3 +125,4 @@ public class AddressBookMain
         }
     }
 }
+
